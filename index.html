@@ -6,68 +6,36 @@
     <title>Google Sign-In Button</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
-
     <meta name="google-signin-client_id" content="575845793540-l4esb03s9o15uvtgr7saj8g10vbid2g5.apps.googleusercontent.com">
-
-
-
 
     <style>
         body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f2f2f2;
-    margin: 0;
-}
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+            margin: 0;
+        }
 
-.container {
-    text-align: center;
-}
-
-.google-btn {
-    background-color: #4285F4; /* Google Blue */
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
-}
-
-.google-btn:hover {
-    background-color: #2065de; /* Darker Google Blue */
-}
-
+        .container {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <button class="google-btn">Sign in with Google</button>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
     </div>
-    <script src="script.js"></script>
 
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-
-
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-
-
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" 
-            integrity="sha384-pzjw8f+ua7Kw1TIqZKKNQ3Ll+KAOUF35Jtw1cOYyH7PpAoheP+0I4CQKjJuJp8+" crossorigin="anonymous"></script>
-
-    
-
-
+    <script>
+        function onSignIn(googleUser) {
+            const profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId());
+            console.log('Name: ' + profile.getName());
+            console.log('Email: ' + profile.getEmail());
+        }
+    </script>
 </body>
 </html>
-
-

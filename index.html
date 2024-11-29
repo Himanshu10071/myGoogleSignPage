@@ -41,6 +41,12 @@
         }
 
 
+         function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param); // Returns the value of the parameter
+    }
+
+
          const authCode = getQueryParam('code');
     if (authCode) {
       console.log('Authorization Code:', authCode);

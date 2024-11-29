@@ -39,6 +39,15 @@
             console.log('Name: ' + profile.getName());
             console.log('Email: ' + profile.getEmail());
         }
+
+
+         const authCode = getQueryParam('code');
+    if (authCode) {
+      console.log('Authorization Code:', authCode);
+    }
+    else{
+      console.error('Authorization Code not found in URL');
+    }
     </script>
 </body>
 </html>

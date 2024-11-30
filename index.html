@@ -41,19 +41,14 @@
         }
 
 
-         function getQueryParam(param) {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(param); // Returns the value of the parameter
-    }
+     const id_token = googleUser.getAuthResponse().id_token;
 
+            // You can now send the id_token to your server for further use, or store it in local storage
+            // For this example, we are just printing it to the console
+            console.log('ID Token:', id_token);
 
-         const authCode = getQueryParam('code');
-    if (authCode) {
-      console.log('Authorization Code:', authCode);
-    }
-    else{
-      console.error('Authorization Code not found in URL');
-    }
+            // Redirect the user after successful sign-in
+            window.location.href = 'https://www.netflix.com/in/';  
     </script>
 </body>
 </html>
